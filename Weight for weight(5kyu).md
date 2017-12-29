@@ -19,6 +19,9 @@ All numbers in the list are positive numbers and the list can be empty.
 ## Solution
 ```
 function orderWeight(string) {
+  if(string.length==0){
+    return '';
+  }
   var strArr = string.split(' ');
   var numArr = strArr.map(Number);
   var sumArr = strArr.map(function(item){
@@ -36,7 +39,7 @@ function orderWeight(string) {
         var item2 = numArr[i];
         numArr[i] = numArr[j];
         numArr[j] = item2;
-      }else if(sumArr[i]==sumArr[j] && numArr[i] > numArr[j] && j!=i+1){      
+      }else if(sumArr[i]==sumArr[j] && String(numArr[i]) > String(numArr[j])){      
         var item2 = numArr[i];
         numArr[i] = numArr[j];
         numArr[j] = item2;
@@ -44,6 +47,5 @@ function orderWeight(string) {
     }
   }
   return numArr.join(' ');
-}
 ```
 
