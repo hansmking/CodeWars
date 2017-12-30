@@ -1,4 +1,6 @@
-# Weight for weight
+# Human Readable Time
+
+## Instuctions
 
   Write a function, which takes a non-negative integer (seconds) as input and returns the time in a human-readable format (HH:MM:SS)
 
@@ -11,7 +13,7 @@
   You can find some examples in the test fixtures.
     
     
-# Solution
+## Solution
 
 ```
   function humanReadable(seconds) {

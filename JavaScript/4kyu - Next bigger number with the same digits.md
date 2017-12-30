@@ -1,4 +1,6 @@
-# Instructions
+# Next bigger number with the same digits
+
+## Instructions
 
   You have to create a function that takes a positive integer number and returns the next bigger number formed by the same digits:
 
@@ -15,7 +17,7 @@
   nextBigger(531)==-1
   ```
 
-# Solutions
+## Solutions
 
 ```
   function nextBigger(n){
