@@ -1,4 +1,4 @@
-# Human Readable Time
+# [Human Readable Time](https://www.codewars.com/kata/human-readable-time/train/javascript)
 
 ## Instuctions
 

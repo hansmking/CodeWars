@@ -1,4 +1,4 @@
-# Weight for weight
+# [Weight for weight](https://www.codewars.com/kata/weight-for-weight/train/javascript)
 
 ## Instructions
   My friend John and I are members of the "Fat to Fit Club (FFC)". John is worried because each month a list with the weights of members is published and each month he is the last on the list which means he is the heaviest.
