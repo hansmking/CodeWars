@@ -11,7 +11,7 @@
   You can find some examples in the test fixtures.
     
     
-#Solution
+# Solution
 
 ```
   function humanReadable(seconds) {

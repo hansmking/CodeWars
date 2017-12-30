@@ -16,7 +16,7 @@
       
     
     
-#Solution
+# Solution
 
 ```
   function orderWeight(string) {
