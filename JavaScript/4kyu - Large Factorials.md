@@ -1,4 +1,4 @@
-# [Large Factorials](https://www.codewars.com/kata/Large-factorials/train/javascript)
+# [Large Factorials](https://www.codewars.com/kata/large-factorials/train/javascript)
 
 ## Instructions
 
