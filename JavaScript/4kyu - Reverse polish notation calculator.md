@@ -1,42 +1,46 @@
-# [Strip Url Params](https://www.codewars.com/kata/strip-url-params/train/javascript)
+# [Reverse polish notation calculator](https://www.codewars.com/kata/reverse-polish-notation-calculator/train/javascript)
 
 ## Instructions
 
-  Complete the method so that it does the following:
+  Your job is to create a calculator which evaluates expressions in 
+  [Reverse Polish notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation).
 
-    * Removes any duplicate query string parameters from the url
-    * Removes any query string parameters specified within the 2nd argument (optional array)
+  For example expression` 5 1 2 + 4 * + 3 - `(which is equivalent to` 5 + ((1 + 2) * 4) - 3 `in normal notation) should evaluate to 14.
 
-### Examples:
+  Note that for simplicity you may assume that there are always spaces between numbers and operations, e.g.` 1 3 + `expression is valid, but` 1 3+ `isn't.
 
-```
-  stripUrlParams('www.codewars.com?a=1&b=2&a=2') // returns 'www.codewars.com?a=1&b=2'
-  stripUrlParams('www.codewars.com?a=1&b=2&a=2', ['b']) // returns 'www.codewars.com?a=1'
-  stripUrlParams('www.codewars.com', ['b']) // returns 'www.codewars.com'
-```
+  Empty expression should evaluate to 0.
 
+  Valid operations are` +, -, *, / `.
 
+  You may assume that there won't be exceptional situations (like stack underflow or division by zero).
 
 
 ## Solutions
 
 ```
-  function stripUrlParams(url, paramsToStrip){
-    var path = url.slice(0,url.indexOf('?'));
-    var args = url.slice(url.indexOf('?'));
-    paramsToStrip = paramsToStrip || [];
-    if(!args) return url;
-    var arr = args.match(/[?:\?|&]([^&#=]+)=([^&#=]+)/g);
-    var keys = [];
-    if(!arr) return url;
-    arr.forEach(function(item){
-      var key = item.slice(1,item.indexOf('='));
-      if(keys.indexOf(key)===-1 && paramsToStrip.indexOf(key)===-1){
-        keys.push(key);
-        path = path+item;
+  function calc(expr) {
+    var arr = expr.split(' ');
+    var popArr = [];
+    var result;
+    var num1=0,num2=0;
+    var opArr = ['-','+','*','/'];
+    for(var i=0; i<arr.length; i++){
+      if(/^[0-9]+\.?[0-9]*$/.test(Number(arr[i]))){
+        popArr.push(arr[i]);
+      }else if(opArr.some(function(op){return op==arr[i]})){
+        num1 = String(popArr.pop());
+        num2 = String(popArr.pop());
+        if(num1==0 && arr[i]=='/'){
+          return popArr.push(0);
+        }else{
+          result = eval(num2.concat(arr[i],num1));
+          popArr.push(result);
+        }
+      }else{
+        popArr.push(0);
       }
-    });
-    
-    return path;
+    }
+    return Number(popArr.pop());
   }
 ```
